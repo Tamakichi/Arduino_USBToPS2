@@ -1,5 +1,5 @@
 # Arduino_USBToPS2
-Arduino USB・PS/2 変換モジュール  
+Arduino pro mini利用 USB・PS/2 変換モジュール  
 
 ![トップ画像](./img/top.jpg)  
 
@@ -11,8 +11,11 @@ Arduino pro mini 3.3V 8Mhz版＋USBホストシールドを使ったUSB・PS/2�
 ## システム構成図  
 ![システム構成](./img/system.png)   
 
+本モジュールは、IchogoJamのPS/2インターフェース経由で接続して利用します。  
+USB-Bluetoothドングル、ワイヤレスキーボード用ドングルを使ってワイヤレスキーボードの利用も可能です。  
+
 ### IchigoJamと本モジュールの接続  
-#### IchigoJamのピンソケットに直接接続する場合  
+#### 1)IchigoJamのピンソケットに直接接続する場合  
 
 Arduino pro mini|ichigojam
 :--:|:--:|
@@ -21,7 +24,7 @@ GND|GND
 A4|KBD2 (PS/2 CLK)  
 A5|KBD1 (PS/2 DATA)
 
-#### IchigoJamのUSBコネクタに接続する場合  
+#### 2)IchigoJamのUSBコネクタに接続する場合  
 Arduino pro mini|ichigojamのUSBコネクタ
 :--:|:--:|
 RAW|USB VBAS(5V)  
@@ -34,17 +37,23 @@ A5|USB D-(PS/2 DATA)
 ![必要パーツ](./img/board.jpg)   
  - Arduino pro mini 3.3V版 8MHz(写真上)  
  - Mimi USB Host Shield(写真下)  
- - 結線用パーツ（ブレッドボード、ジャンパワイヤ）  
-  
+ - 結線用パーツ(ブレッドボード、ジャンパワイヤ)  
+
  純正品は高いのでクローン製品を利用しています。  
  AliexpressではArduino pro mini 3.3V版が$2程度、Mimi USB Host Shieldが$8程度で購入出来ます。  
 
 ## 製作  
- - Mimi USB ホストシールドにシングルピンソケットを付けてArduino pro miniを乗せられるようにします。    
- - Arduino pro miniは、スケッチ書き込み、IchigoJamとの
+ Mimi USB Host ShieldにArduino pro miniを乗せて使います。  
+ 脱着可能にする等、各自の用途に合わせて工夫して実装して下さい。  
 
-
-
+**ポイント**
+ - Mimi USB Host Shieldにシングルピンソケットを付けてArduino pro miniを乗せられるようにします。    
+ - Arduino pro miniはスケッチ書き用の端子を確保：GND、VCC、TXD、RXD、DTR  
+ - IchigoJamとの接続用の端子を確保： A4、A5 （※ スケッチの#defineにて他のピンに変更できます)  
+ - USBコネクタにて接続する場合は、USBケーブルを接続します。  
+   
+![ピンヘッダ実装](./img/headpin.jpg)    
+![USBケーブル実装](./img/usbwireheadpin.jpg)    
 
 ### 接続例1  
 IchigoJamのVCC、GND、KBD1、KBD2端子に接続  
