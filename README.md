@@ -8,7 +8,13 @@ Arduino pro mini 3.3V 8Mhz版＋USBホストシールドを使ったUSB=>PS/2変
 本モジュールを使うことで、IchigoJamにてUSB HIDキーボード、bluetooth HIDキーボード(Bluetoothドングル利用時）、  
 の利用が可能となります。  
 
-![システム構成](./img/system.jpg) 
+![システム構成](./img/system.png)   
+
+![システム構成](./img/ichigojam.jpg)   
+
+![システム構成](./img/ichigojam2.jpg)   
+
+![キーボード](./img/keyboard.jpg)   
 
 ## 関連記事  
 ・猫にコ・ン・バ・ン・ワ  - IchigoJam用 USBキーボード変換 Bluetooth・USBキーボードの両対応できました2016/11/19    
