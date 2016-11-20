@@ -36,17 +36,18 @@ A5|USB D-(PS/2 DATA)
 ## 必要パーツ  
 
 ![必要パーツ](./img/board.jpg)   
- - Arduino pro mini 3.3V版 8MHz(写真上)  
- - Mimi USB Host Shield(写真下)  
- - 結線用パーツ(ブレッドボード、ジャンパワイヤ)  
+- Arduino pro mini 3.3V版 8MHz(写真上)  
+- Mimi USB Host Shield(写真下)  
+- 結線用パーツ(ブレッドボード、ジャンパワイヤ)  
 
- 純正品は高いのでクローン製品を利用しています。  
- AliexpressではArduino pro mini 3.3V版が$2程度、Mimi USB Host Shieldが$8程度で購入出来ます。  
- ただし、クローン製品のMimi USB Host ShieldはUSBのVBASが5V供給が出来ず3.3V固定となりなす。  
+
+純正品は高いのでクローン製品を利用しています。  
+AliexpressではArduino pro mini 3.3V版が$2程度、Mimi USB Host Shieldが$8程度で購入出来ます。  
+ただし、クローン製品のMimi USB Host ShieldはUSBのVBASが5V供給が出来ず3.3V固定となりなす。  
 
 ## 製作  
- Mimi USB Host ShieldにArduino pro miniを乗せて使います。  
- 脱着可能にする等、各自の用途に合わせて工夫して実装して下さい。  
+Mimi USB Host ShieldにArduino pro miniを乗せて使います。  
+脱着可能にする等、各自の用途に合わせて工夫して実装して下さい。  
 
 **ポイント**
  - Mimi USB Host Shieldにシングルピンソケットを付けてArduino pro miniを乗せられるようにします。    
