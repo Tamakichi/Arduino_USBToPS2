@@ -53,7 +53,7 @@ A5|USB D-(PS/2 DATA)
  - USBコネクタにて接続する場合は、USBケーブルを接続します。  
    
 ![ピンヘッダ実装](./img/headpin.jpg)    
-![USBケーブル実装](./img/usbwireheadpin.jpg)    
+![USBケーブル実装](./img/usbwire.jpg)    
 
 ### 接続例1  
 IchigoJamのVCC、GND、KBD1、KBD2端子に接続  
