@@ -61,11 +61,11 @@ Mimi USB Host ShieldにArduino pro miniを乗せて使います。
 
 ### 接続例1  
 IchigoJamのVCC、GND、KBD1、KBD2端子に接続  
-![システム構成](./img/ichigojam.jpg)   
+![システム構成](./img/ichigojam2.jpg)   
 
 ### 接続例2  
 IchigoJamのUSBコネクタに接続    
-![システム構成](./img/ichigojam2.jpg)   
+![システム構成](./img/ichigojam.jpg)   
 
 ### スケッチ(ファームウェア)の書込み  
 - スケッチ(ファームウェア)の書込みには、Arduino IDE 1.6.12を利用しました。  
