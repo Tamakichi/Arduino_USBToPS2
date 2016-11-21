@@ -97,6 +97,7 @@ IchigoJamのUSBコネクタに接続
   -- planex BT-MicroEDR2X  
 - Bluetoothキーボード  
   -- ポケモンキーボード  
+  -- あきばおーで購入したメーカー不明の小型キーボード(写真の小さいやつ)  
 - USBキーボード  
   -- ロジクール WIRELESS KEYBOARD K275 (無線)  
   -- サンワサプライ SKB-KG3W (有線) 
