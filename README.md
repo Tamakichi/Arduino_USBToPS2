@@ -76,7 +76,7 @@ IchigoJamのUSBコネクタに接続
   - USB_Host_Shield_2.0 (https://github.com/felis/USB_Host_Shield_2.0)  
   - MsTimer2 (http://playground.arduino.cc/Main/MsTimer2)  
 
-### 利用方法  
+## 利用方法  
 - 本モジュール(キーボードも接続)をIchigoJamに接続後、IchigoJamの電源を入れて下さい。  
   IchigoJamはキーボードイニシャル処理を起動時のみしか行わないため、IchigoJamが起動した状態で  
   本モジュールを繋げても認識してくれません。  
@@ -84,13 +84,13 @@ IchigoJamのUSBコネクタに接続
   キーボードを押し続けるとペアリングが行われます。  
 - プラグ＆プレイに対応しています。有線キーボードを抜いて、 bluetoothドングルを使うことも可能です。  
 
-### 制約事項    
+## 制約事項    
 - メディアキーは利用出来ません。 
 - USBの供給電源が3.3Vのため、接続したキーボードが動作しない可能性があります。  
 - Bluetoothキーボードはペアリングが正常に行えないものがあるようです(原因調査中）。  
 - キーリピートがIchigoJamに直接接続して利用する場合より若干早いようです。  
 
-### 動作確認したキーボード  
+## 動作確認したキーボード  
 ![キーボード](./img/keyboard.jpg)   
 - Bluetoothドングル  
   -- Elecom LBT-UAN05C2  
@@ -101,6 +101,14 @@ IchigoJamのUSBコネクタに接続
   -- ロジクール WIRELESS KEYBOARD K275 (無線)  
   -- サンワサプライ SKB-KG3W (有線) 
   -- Elecom TK-FCM007BK (有線) 
+
+## その他  
+- Arduino UNO + USBホストシールドでも動作します。IchigoJamは3.3V駆動ですが、  
+  5VトレラントであるためA4、A5の端子をIchigoJamのKBD2、KBd1に直接接続可能です。  
+- USBHUB対応が今一で動いたり動かなかったりします。  
+- USBマウスの対応は実装途中です。  
+  上下左右の移動をカーソルキー「↑」「↓」「←」「→」に割り付けていますが、動作は今一です。  
+- 動作がおかしくなった場合は、USB接続を抜き差しすると改善するかもしれません。 
 
 ## 関連記事  
 ・猫にコ・ン・バ・ン・ワ  - IchigoJam用 USBキーボード変換 Bluetooth・USBキーボードの両対応できました2016/11/19    
