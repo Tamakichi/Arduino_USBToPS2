@@ -54,7 +54,7 @@ Mimi USB Host ShieldにArduino pro miniを乗せて使います。
  - Arduino pro miniはスケッチ書き用の端子を確保：GND、VCC、TXD、RXD、DTR  
  - IchigoJamとの接続用の端子を確保： A4、A5 （※ スケッチの#defineにて他のピンに変更できます)  
  - USBコネクタにて接続する場合は、USBケーブルを接続します。  
- - Circuits@HomeのオリジナルMimi USB Host Shieldを利用する場合はUSB 5V共有が出来るようです。
+ - Circuits@HomeのオリジナルMimi USB Host Shieldを利用する場合はUSB 5V供給が出来るようです。
    
 ![ピンヘッダ実装](./img/headpin.jpg)    
 ![USBケーブル実装](./img/usbwire.jpg)    
