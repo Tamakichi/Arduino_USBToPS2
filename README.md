@@ -15,7 +15,7 @@ Arduino pro mini 3.3V 8Mhz版＋USBホストシールドを使ったUSB・PS/2�
 本モジュールは、IchogoJamのPS/2インターフェース経由で接続して利用します。  
 USB-Bluetoothドングル、ワイヤレスキーボード用ドングルを使ってワイヤレスキーボードの利用も可能です。  
 
-### IchigoJamと本モジュールの接続  
+### IchigoJamと本モジュールの接続(デフォルト)  
 #### 1)IchigoJamのピンソケットに直接接続する場合  
 
 Arduino pro mini|ichigojam
@@ -52,9 +52,12 @@ Mimi USB Host ShieldにArduino pro miniを乗せて使います。
 **ポイント**
  - Mimi USB Host Shieldにシングルピンソケットを付けてArduino pro miniを乗せられるようにします。    
  - Arduino pro miniはスケッチ書き用の端子を確保：GND、VCC、TXD、RXD、DTR  
- - IchigoJamとの接続用の端子を確保： A4、A5 （※ スケッチの#defineにて他のピンに変更できます)  
+ - IchigoJamとの接続用のPS/2用端子を確保： A4、A5  
+  ※ A4、A5はスケッチの#defineにて他のピンに変更できます。  
+   だだし、下記のピンは利用済みのため割り当て不可です。  
+   D1:TX、D2:RX、D9:INT、D10:SS、D11:MOSI、D12:MISO、D13:SCK  
  - USBコネクタにて接続する場合は、USBケーブルを接続します。  
- - Circuits@HomeのオリジナルMimi USB Host Shieldを利用する場合はUSB 5V供給が出来るようです。
+ - Circuits@HomeのオリジナルMimi USB Host Shieldを利用する場合はUSB 5V供給が出来るようです。  
    
 ![ピンヘッダ実装](./img/headpin.jpg)    
 ![USBケーブル実装](./img/usbwire.jpg)    
