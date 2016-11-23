@@ -22,8 +22,8 @@ Arduino pro mini|ichigojam
 :--:|:--:|
 RAW|5V  
 GND|GND  
-A4|KBD2 (PS/2 CLK)  
-A5|KBD1 (PS/2 DATA)
+A4|KBD1 (PS/2 CLK)  
+A5|KBD2 (PS/2 DATA)
 
 #### 2)IchigoJamのUSBコネクタに接続する場合  
 Arduino pro mini|ichigojamのUSBコネクタ
@@ -116,7 +116,8 @@ IchigoJamのUSBコネクタに接続
 ## その他  
 - スケッチは自由に使って下さい。改造・流用・二次配布ＯＫです。  
 - Arduino UNO + USBホストシールドでも動作します。IchigoJamは3.3V駆動ですが、  
-  5VトレラントであるためA4、A5の端子をIchigoJamのKBD2、KBd1に直接接続可能です。  
+  5VトレラントであるためA4、A5の端子をIchigoJamのKBD1、KBD2に直接接続可能です。  
+  (IchigoJamに直接キーボードを接続した場合もKBD1、KBD2は5V信号入力となっています）  
 - USBHUB対応が今一で動いたり動かなかったりします。  
 - USBマウスがちょこっと使えます（実装途中）。  
   上下左右の移動をカーソルキー「↑」「↓」「←」「→」に割り付けていますが、動作は今一です。  
