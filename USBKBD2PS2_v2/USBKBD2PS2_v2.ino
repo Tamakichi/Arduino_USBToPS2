@@ -4,6 +4,7 @@
 // 作成者 たま吉さん
 // 作成日 2016/11/11 , 最終修正日 2016/11/18
 // 修正 2016/11/18 Bluetooth HIDとUSB HIDのスケッチの統合,キーリピート機能対応
+// 修正 2016/11/23 マウス非対応に修正、setup時の時間待ち削除
 //
 // このスケッチの利用には以下のハードウェア(シールド)が必要です.
 //  ・USB Host Shield
@@ -55,109 +56,13 @@ class KbdRptParser : public KeyboardReportParser {
     virtual void OnKeyPressed(uint8_t key) {};
 };
 
-// HIDマウス レポートパーサークラスの定義
-/*
-class MouseRptParser : public MouseReportParser {
-  protected:
-    virtual void OnMouseMove(MOUSEINFO *mi) {};
-    virtual void OnLeftButtonUp(MOUSEINFO *mi){};
-    virtual void OnLeftButtonDown(MOUSEINFO *mi){};
-    virtual void OnRightButtonUp(MOUSEINFO *mi) {};
-    virtual void OnRightButtonDown(MOUSEINFO *mi){};
-    virtual void OnMiddleButtonUp(MOUSEINFO *mi){};
-    virtual void OnMiddleButtonDown(MOUSEINFO *mi){};
-};
-*/
-
-class MouseRptParser : public MouseReportParser {
-  protected:
-    void OnMouseMove(MOUSEINFO *mi);
-    void OnLeftButtonUp(MOUSEINFO *mi);
-    void OnLeftButtonDown(MOUSEINFO *mi);
-    void OnRightButtonUp(MOUSEINFO *mi);
-    void OnRightButtonDown(MOUSEINFO *mi);
-    void OnMiddleButtonUp(MOUSEINFO *mi);
-    void OnMiddleButtonDown(MOUSEINFO *mi);
-};
-
-void MouseRptParser::OnMouseMove(MOUSEINFO *mi){
-/*  
-  Serial.print("dx=");
-  Serial.print(mi->dX, DEC);
-  Serial.print(" dy=");
-  Serial.println(mi->dY, DEC);
-*/
-  if (mi->dX > MS_SIKIICHI) {
-    keyboard.write(0xE0);
-    keyboard.write(0x74);
-    delay(50); 
-    keyboard.write(0xE0);
-    keyboard.write(0xF0);
-    keyboard.write(0x74);
-  } else if (mi->dX < -MS_SIKIICHI) {
-    keyboard.write(0xE0);
-    keyboard.write(0x6B);    
-    delay(50); 
-    keyboard.write(0xE0);
-    keyboard.write(0xF0);
-    keyboard.write(0x6B);    
-  }
-  if (mi->dY > MS_SIKIICHI) {
-    keyboard.write(0xE0);
-    keyboard.write(0x72);        
-    delay(50); 
-    keyboard.write(0xE0);
-    keyboard.write(0xF0);
-    keyboard.write(0x72);        
-  } else if (mi->dY < -MS_SIKIICHI) {
-    keyboard.write(0xE0);
-    keyboard.write(0x75);        
-    delay(50); 
-    keyboard.write(0xE0);
-    keyboard.write(0xF0);
-    keyboard.write(0x75);        
-  }
-}
-
-void MouseRptParser::OnLeftButtonUp  (MOUSEINFO *mi){
-  Serial.println("L Butt Up");
-}
-
-void MouseRptParser::OnLeftButtonDown (MOUSEINFO *mi){
-  Serial.println("L Butt Dn");
-}
-
-void MouseRptParser::OnRightButtonUp  (MOUSEINFO *mi){
-  Serial.println("R Butt Up");
-}
-
-void MouseRptParser::OnRightButtonDown  (MOUSEINFO *mi){
-  Serial.println("R Butt Dn");
-}
-
-void MouseRptParser::OnMiddleButtonUp (MOUSEINFO *mi){
-  Serial.println("M Butt Up");
-}
-
-void MouseRptParser::OnMiddleButtonDown (MOUSEINFO *mi){
-  Serial.println("M Butt Dn");
-}
-
-USB      Usb;
+USB     Usb;
 USBHub  Hub1(&Usb);
-USBHub  Hub2(&Usb);
-USBHub  Hub3(&Usb);
-USBHub  Hub4(&Usb);
-
 BTD     Btd(&Usb);
-BTHID   bthid(&Btd, PAIR, "0000");
-BTHID   hid(&Btd);
+BTHID   bthid(&Btd);
 
 KbdRptParser keyboardPrs;
-MouseRptParser mousePrs;
-
 HIDBoot<USB_HID_PROTOCOL_KEYBOARD>    HidKeyboard(&Usb);
-HIDBoot<USB_HID_PROTOCOL_MOUSE>    HidMouse(&Usb);
 
 uint8_t classType = 0;      
 uint8_t subClassType = 0;
@@ -576,15 +481,11 @@ void setup() {
     while (1); // Halt    
   }
   
-  next_time = millis() + 5000;
-
+  //next_time = millis() + 5000;
   bthid.SetReportParser(KEYBOARD_PARSER_ID, &keyboardPrs);
-  bthid.SetReportParser(MOUSE_PARSER_ID, &mousePrs);
   bthid.setProtocolMode(USB_HID_BOOT_PROTOCOL); // Boot Protocol Mode
   bthid.setProtocolMode(HID_RPT_PROTOCOL); // Report Protocol Mode
-  //HidKeyboard.SetReportParser(0, &Prs);
   HidKeyboard.SetReportParser(0, &keyboardPrs);
-  HidMouse.SetReportParser(0, &mousePrs);
 
   claerKeyEntry();
   MsTimer2::set(REP_INTERVAL, sendRepeat); 
