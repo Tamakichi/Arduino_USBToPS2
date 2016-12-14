@@ -80,7 +80,7 @@ IchigoJamのUSBコネクタに接続
   - MsTimer2 (http://playground.arduino.cc/Main/MsTimer2)    
 - ライブラリps2devは２ヶ所の修正が必要となります.  
   - ps2dev.h の #include "WConstants.h" をコメントアウトする 例：//#include "WConstants.h"  
-  - ps2dev.cpp の #include "WProgram.h" を #include <Arduino.h> に変更する.  
+  - ps2dev.cpp の #include "WProgram.h" を #include \<Arduino.h\> に変更する.  
 
 ## 利用方法  
 - 本モジュール(キーボードも接続)をIchigoJamに接続後、IchigoJamの電源を入れて下さい。  
