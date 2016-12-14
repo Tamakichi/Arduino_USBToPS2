@@ -77,11 +77,10 @@ IchigoJamのUSBコネクタに接続
 - スケッチのコンパイルには以下のライブラリが必要です.  
   - ps2dev(ps2dev.zip) - an interface library for ps2 host : http://playground.arduino.cc/ComponentLib/Ps2mouse  
   - USB_Host_Shield_2.0 (https://github.com/felis/USB_Host_Shield_2.0)  
-  - MsTimer2 (http://playground.arduino.cc/Main/MsTimer2)  
-  
+  - MsTimer2 (http://playground.arduino.cc/Main/MsTimer2)    
 - ライブラリps2devは２ヶ所の修正が必要となります.  
-  ps2dev.h の #include "WConstants.h" をコメントアウトする 例：//#include "WConstants.h"   
-  ps2dev.cpp の #include "WProgram.h" を #include <Arduino.h> に変更する。  
+  - ps2dev.h の #include "WConstants.h" をコメントアウトする 例：//#include "WConstants.h"  
+  - ps2dev.cpp の #include "WProgram.h" を #include <Arduino.h> に変更する.  
 
 ## 利用方法  
 - 本モジュール(キーボードも接続)をIchigoJamに接続後、IchigoJamの電源を入れて下さい。  
