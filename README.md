@@ -71,7 +71,7 @@ IchigoJamのUSBコネクタに接続
 ![システム構成](./img/ichigojam.jpg)   
 
 ### スケッチ(ファームウェア)の書込み  
-- スケッチ(ファームウェア)の書込みには、Arduino IDE 1.6.12を利用しました。  
+- スケッチ(ファームウェア)の書込みには、Arduino IDE 1.6.12を利用しました.  
 - フォルダ USBKBD2PS2_v2を各自の開発環境に配置して下さい。  
 - 書込みにはUSB-UARTモジュールが必要です。  
 - スケッチのコンパイルには以下のライブラリが必要です.  
@@ -79,10 +79,9 @@ IchigoJamのUSBコネクタに接続
   - USB_Host_Shield_2.0 (https://github.com/felis/USB_Host_Shield_2.0)  
   - MsTimer2 (http://playground.arduino.cc/Main/MsTimer2)  
   
-- ライブラリps2devは２ヶ所の修正が必要となります。   
-  - **ps2dev.h** の **#include "WConstants.h"** をコメントアウトする。  
-    //#include "WConstants.h"  
-  - **ps2dev.cpp** の **#include "WProgram.h"** を **#include <Arduino.h>** に変更する。  
+- ライブラリps2devは２ヶ所の修正が必要となります.  
+  ps2dev.h の #include "WConstants.h" をコメントアウトする 例：//#include "WConstants.h"   
+  ps2dev.cpp の #include "WProgram.h" を #include <Arduino.h> に変更する。  
 
 ## 利用方法  
 - 本モジュール(キーボードも接続)をIchigoJamに接続後、IchigoJamの電源を入れて下さい。  
