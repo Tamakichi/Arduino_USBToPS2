@@ -5,6 +5,7 @@
 // 作成日 2016/11/11 , 最終修正日 2016/11/18
 // 修正 2016/11/18 Bluetooth HIDとUSB HIDのスケッチの統合,キーリピート機能対応
 // 修正 2016/11/23 マウス非対応に修正、setup時の時間待ち削除
+// 修正 2017/04/23 IchigoLatteの初期状態のPS/2バスのGND浮き対応のための修正
 //
 // このスケッチの利用には以下のハードウェア(シールド)が必要です.
 //  ・USB Host Shield
@@ -99,9 +100,10 @@ void ack() {
 // PS/2 ホストから送信されるコマンドの処理
 int keyboardcommand(int command) {
   unsigned char val;
+  uint32_t tm;
   switch (command) {
   case 0xFF:  ack();// Reset: キーボードリセットコマンド。正しく受け取った場合ACKを返す。
-    //while(keyboard.write(0xAA)!=0);
+    //keyboard.write(0xAA);
     break;
   case 0xFE: // 再送要求
     ack();
@@ -474,8 +476,16 @@ uint8_t getIntClass(byte& intclass, byte& intSubClass ) {
 }
 
 void setup() {
+  uint32_t tm;
   Serial.begin( 115200 );
-  while(keyboard.write(0xAA)!=0);
+
+  tm = millis();  
+  while(keyboard.write(0xAA)!=0)
+  {
+    if ( millis() > tm+1000)
+        break;
+  }
+  Serial.println("Self Test OK.");
   if (Usb.Init() == -1) {
     Serial.println(F("OSC did not start."));
     while (1); // Halt    
